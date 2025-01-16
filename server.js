@@ -19,19 +19,6 @@ app.get('/results', (req, res) => {
   res.sendFile(path.join(__dirname, 'results.html'));
 });
 
-// Endpoint to get quiz questions
-app.get('/api/questions', (req, res) => {
-  fs.readFile(path.join(__dirname, 'questions.json'), 'utf8', (err, data) => {
-    if (err) {
-      return res.status(500).send('Error reading questions file');
-    }
-    const questions = JSON.parse(data);
-    // Randomly select 10 questions
-    const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-    res.json(selectedQuestions);
-  });
-});
-
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
