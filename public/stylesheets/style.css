@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fade {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -15,7 +15,7 @@ body{
     width: 100vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: linear-gradient(to right, rgb(0, 12, 100), #2486dc, #7068e7);
-    animation: fadeIn 2s ease-in-out forwards; 
+    animation: fade 2s ease-in-out forwards; 
 }
 
 
@@ -224,4 +224,97 @@ footer{
     color: white;
     margin-top: 300px;
     background-color: rgb(0, 0, 70);
+}
+
+@media screen and (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #logo {
+        font-size: 30px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 22px;
+    }
+
+    nav button{
+        font-size: 15px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        padding: 20px;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    .banner {
+        width: 100%;
+    }
+
+    #about-descr {
+        width: 90%; 
+        font-size: 20px;
+    }
+
+    #Quiz{
+        margin-top: 200px;
+        scroll-margin-top: 0px;
+    }
+    .quiz-container {
+        width: 80%; 
+        margin-left: 5%;
+        margin-right: 5%;
+
+    }
+
+    .quiz-descr {
+        padding: 30px;
+        font-size: 22px;
+    }
+
+    .quiz-head {
+        font-size: 35px;
+    }
+
+    .quiz-p {
+        font-size: 25px;
+    }
+
+    #quiz {
+        width: 40%;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 50px
+    }
+
+    .box {
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+
+    .c-img {
+        width: 100px;
+    }
+
+    footer {
+        font-size: 16px;
+        padding: 10px;
+    }
 }
