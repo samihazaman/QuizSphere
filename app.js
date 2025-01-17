@@ -6,7 +6,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//var authRouter = require('./routes/auth'); //if we add auth
 var quizRouter = require('./routes/quiz');    
 var resultsRouter = require('./routes/results');
 
@@ -24,7 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/auth', authRouter); //if we add auth
 app.use('/quiz', quizRouter); 
 app.use('/results', resultsRouter);
 
