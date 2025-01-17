@@ -1,14 +1,94 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Quiz App</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizSphere</title>
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <h1 id="logo"> QuizSphere </h1>
+        <nav>
+            <a href="#About"> About</a>
+            <a href="#Quiz"> Quiz</a>
+            <a href="#Contact"> Contact </a>
+            <a href="./quiz.ejs"> <button> Start Quiz </button></a>
+        </nav>
+    </header>
 
-  <body>
+    <section id="About">
+        <div class="about-container">
+                <img class="banner" src="../public/stylesheets/Images/quiz-banner.jpg">
+            <p id="about-descr"> 
+                Welcome to QuizSphere, your go-to hub for dynamic 
+                and thought-provoking quizzes. Whether you're eager 
+                to challenge your knowledge, engage in friendly 
+                competition, or gain exposure to new topics at your own 
+                pace, we provide an extensive range of quizzes 
+                designed to entertain and educate everyone.
+            </p>
+        </div>
+    </section>
 
+
+    <section id="Quiz"> 
+        <div class="quiz-container">
+            <div class="quiz-descr"> 
+                <h1 class="quiz-head"> Ready to take on the challenge? </h1>
+                <h2 class="quiz-head"> How much do you really know? </h2>
+                <p class="quiz-p"> Find out in just a click! Each question is designed to test your limits. Will you ace it or fall short? </p>
+                <p class="quiz-p"> Prepare yourself for a few surprises along the way. Let’s dive in! </p>
+                <div class="quiz-button-container"> 
+                    <a href="./quiz.ejs"> <button id="quiz"> QUIZ </button></a>
+                </div>
+                </div>
+        </div>
+    </section>
     
+    <section id="Contact">
+        <div class="contact-container">
+            <div class="box">
+                <a href="mailto:support@quizsphere.com"> 
+                    <img class="c-img" src="../public/stylesheets/Images/mail.png">
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.facebook.com/profile.php?id=61571982726289" target="_blank"> 
+                <img class="c-img" src="../public/stylesheets/Images/facebook (1).png">
+                </a>
+            </div>
+            <div class="box">
+                <a href="tel:+6234367291">
+                <img class="c-img" src="../public/stylesheets/Images/telephone.png">
+                </a>
+            </div>
+        </div>
+    </section>
 
-  </body>
+    <footer>
+        <h2> Copyright © 2025 QuizSphere. All rights reserved. </h2>
+    </footer>
+
+    <script>
+      const quizButton = document.querySelector('#quiz');
+      const quizBackground = document.querySelector('.quiz-container');
+
+      quizButton.addEventListener('mouseover', () => {
+          quizBackground.style.transition = 'background 5s ease-in-out'; 
+          quizBackground.style.background = 'linear-gradient(to right, #2486dc, #7068e7, rgb(0, 12, 100';
+          quizButton.style.background = 'navy';
+          quizButton.style.color = 'white';
+      });
+
+
+      quizButton.addEventListener('mouseout', () => {
+          quizBackground.style.transition = 'background 5s ease-in-out'; 
+          quizBackground.style.background = 'transparent'; 
+          quizButton.style.background = 'white';
+          quizButton.style.color = 'black';
+      });
+  </script>
   
+</body>
 </html>
