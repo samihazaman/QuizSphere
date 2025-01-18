@@ -3,9 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Quiz</title>
 </head>
 <body>
+
+
+    <header>
+        <h1>Quiz Time!</h1>
+      </header>
+    
+      <main>
+        <div id="quiz-container">
+          <div id="question-box">
+            <h2 id="question">Loading question...</h2>
+            <div id="options">
+              <!-- Options will be dynamically added here -->
+            </div>
+          </div>
+          <button id="next-button" disabled>Next</button>
+        </div>
+      </main>
+    
+    
+      <script>
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let questions = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const questionElement = document.getElementById('question');
+        const optionsContainer = document.getElementById('options');
+        const nextButton = document.getElementById('next-button');
+
+        // Fetch questions from the server
+        fetch('/quiz/questions').then(response => response.json()).then(data => {
+            questions = data; // Store questions
+            displayQuestion(); // Display the first question
+            })
+            .catch(err => {
+            console.error('Error fetching questions:', err);
+            questionElement.textContent = 'Error loading questions. Please try again later.';
+            });
+
+        // Display the current question
+        function displayQuestion() {
+            const questionData = questions[currentQuestionIndex];
+            questionElement.textContent = questionData.question;
+
+            // Clear and populate options
+            optionsContainer.innerHTML = '';
+            ['A', 'B', 'C', 'D'].forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = `${option}: ${questionData[option]}`;
+            button.classList.add('option-button');
+            button.addEventListener('click', () => handleOptionClick(option));
+            optionsContainer.appendChild(button);
+            });
+
+            nextButton.disabled = true; // Disable next until an answer is selected
+        }
+
+        // Handle option selection
+        function handleOptionClick(selectedOption) {
+            const correctOption = questions[currentQuestionIndex].answer;
+
+            if (selectedOption === correctOption) {
+            score++;
+            }
+
+            // Highlight correct and incorrect options
+            document.querySelectorAll('.option-button').forEach(button => {
+            if (button.textContent.startsWith(correctOption)) {
+                button.classList.add('correct');
+            } else {
+                button.classList.add('incorrect');
+            }
+            button.disabled = true; // Disable all buttons after a selection
+            });
+
+            nextButton.disabled = false; // Enable next button
+        }
+
+        // Move to the next question
+        nextButton.addEventListener('click', () => {
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+            displayQuestion(); // Show the next question
+            } else {
+            // Redirect to results page
+            window.location.href = `/results?score=${score}&total=${questions.length}`;
+            }
+        });
+    });
+
+
+      </script>
+    
     
 </body>
 </html>
