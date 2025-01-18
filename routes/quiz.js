@@ -3,13 +3,12 @@ var router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-// Route to render the quiz page
 router.get('/', function (req, res, next) {
     res.render('quiz'); 
   });
   
 
-// Route to fetch questions
+//route to fetch questions from json file
 router.get('/questions', (req, res) => {
     const filePath = path.join(__dirname, '../data/questions.json');
   
@@ -21,7 +20,7 @@ router.get('/questions', (req, res) => {
   
       const allQuestions = JSON.parse(data);
   
-      // Randomize and select 10 questions
+      // randomize and select 10 questions
       const selectedQuestions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 10);
       res.json(selectedQuestions);
     });
