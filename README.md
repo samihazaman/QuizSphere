@@ -31,8 +31,9 @@ Samiha Zaman,
 
 Samiha: Backend Developer
 
---Implemented backend functionality for the Quiz Page, such as developing JavaScript logic to fetch questions from a JSON file and handle user interactions with answer selection and feedback
---Handled dynamic rendering of quiz data using EJS templates.
+-Implemented backend functionality for the Quiz Page, such as developing JavaScript logic to fetch questions from a JSON file and handle user interactions with answer selection and feedback
+
+-Handled dynamic rendering of quiz data using EJS templates.
 
 ## How to Run the Server
 
