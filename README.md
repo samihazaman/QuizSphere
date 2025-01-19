@@ -20,18 +20,20 @@ QuizSphere provides an interactive and engaging experience for users to test the
 - **Express.js**: Web application framework for Node.js to handle routing and server setup.
 - **EJS**: Templating engine used for rendering dynamic content on the web pages.
 
-## Server Walkthrough: 
-
 
 ## Participating Team Members:
 
-Samiha Zaman, 
+Samiha Zaman, Reiad Sakoor
 
 ## Team Roles:
 
 **Samiha: Backend Developer**
 - Implemented backend functionality for the Quiz Page, such as developing JavaScript logic to fetch questions from a JSON file and handle user interactions with answer selection and feedback.
 - Handled dynamic rendering of quiz data using EJS templates.
+
+**Reiad: Frontend and Server side**
+- Engineered the mainpage with a responsive design across all devices, leveraging flexbox layout and various animations to increase user engagement and a consistent experience   
+- Assisted with initializing the server
 
 ## How to Run the Server
 
