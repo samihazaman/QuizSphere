@@ -1,0 +1,142 @@
+/* Keyframes from overall CSS */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: linear-gradient(to right, rgb(0, 12, 100), #2486dc, #7068e7);
+  animation: fade 2s ease-in-out forwards;
+  color: #ffffff; /* Default text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Results Header */
+header {
+  padding: 30px;
+  text-align: center;
+  background-color: #2c2c54;
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* Main Container */
+main {
+  flex: 1;
+  margin: 30px auto;
+  max-width: 900px;
+  background-color: #2d2d44; 
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  text-align: center;
+}
+
+/* Results Section */
+#results {
+  margin-bottom: 20px;
+}
+
+#results h2 {
+  margin-bottom: 15px;
+}
+
+#score {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Time Taken Section */
+#timeTaken h3 {
+  margin-bottom: 15px;
+}
+
+#questionTimes {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 400px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Leaderboard Section */
+#leaderboard {
+  margin-bottom: 20px;
+}
+
+#leaderboard h3 {
+  margin-bottom: 15px;
+}
+
+#leaderboardList {
+  background-color: #3f3d56;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #6c63ff;
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+/* Action Buttons */
+#actionButtons {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #524eff;
+  box-shadow: 0 0 15px #524eff;
+  transform: translateY(-2px);
+}
+
+#endQuiz {
+  background-color: red;
+}
+
+#endQuiz:hover {
+  background-color: darkred;
+  box-shadow: 0 0 15px darkred;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #2c2c54;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 1rem;
+}
