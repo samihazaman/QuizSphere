@@ -320,13 +320,26 @@ footer{
     }
 }
 
-
 .quiz-header {
     text-align: center;
     background-color: #2c2c54; 
     color: #fff;
     padding: 15px 0;
   }
+
+  .quiz-header h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+ .quiz-header #timer {
+    font-size: 1.5em;
+    color: #e0e0e0;
+    text-align: center;
+    margin: 10px 0;
+}
+
   
   #quiz-page-container {
     max-width: 600px;
@@ -397,5 +410,4 @@ footer{
     background-color: #524eff;
     box-shadow: 0 0 15px #524eff;
   }
-  
-  
+

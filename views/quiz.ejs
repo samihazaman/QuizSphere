@@ -11,6 +11,7 @@
 
     <div class="quiz-header">
         <h1>Quiz Time!</h1>
+        <div id="timer">Time Left: 10:00</div>
     </div>
     
       <main>
@@ -31,16 +32,42 @@
         let currentQuestionIndex = 0;
         let score = 0;
         let questions = [];
+        let timerInterval;
 
         document.addEventListener('DOMContentLoaded', () => {
         const questionElement = document.getElementById('question');
         const optionsContainer = document.getElementById('options');
         const nextButton = document.getElementById('next-button');
+        const timerElement = document.getElementById('timer');
+
+        let timeLeft = 10 * 60; //10 mins in seconds
+
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    endQuiz();
+                } else {
+                    timeLeft--;
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    timerElement.textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+         function endQuiz() {
+            clearInterval(timerInterval);
+            window.location.href = `/results?score=${score}&total=${questions.length}`;
+        }
+
 
         //fetch questions from the server
         fetch('/quiz/questions').then(response => response.json()).then(data => {
             questions = data; 
             displayQuestion();
+            startTimer(); 
             })
             .catch(err => {
             console.error('Error fetching questions:', err);
@@ -49,8 +76,8 @@
 
         function displayQuestion() {
             const questionData = questions[currentQuestionIndex];
-            questionElement.textContent = questionData.question;
-
+            questionElement.textContent = `${currentQuestionIndex + 1}. ${questionData.question}`; //show question number + question
+            
             // clear and populate options
             optionsContainer.innerHTML = '';
             ['A', 'B', 'C', 'D'].forEach(option => {
@@ -89,8 +116,7 @@
             if (currentQuestionIndex < questions.length) {
             displayQuestion(); 
             } else {
-            // redirect to results page
-            window.location.href = `/results?score=${score}&total=${questions.length}`;
+              endQuiz();
             }
         });
     });
