@@ -43,9 +43,10 @@ Samiha Zaman, Reiad Sakoor, Bhupendra Pariyar, Mani Azem
 - On the backend, it processes scores via Express, updates an in-memory leaderboard, sorts it, and limits it to the top 10 before rendering the results. This integrates templating, routing, and state management for an interactive experience.
 
 **Mani: Backend and Server side**
--Configured core server setup in app.js, integrating middleware for logging, parsing, cookies, and static files.
--Set up the EJS view engine and defined routes (/, /quiz, /results).
--Implemented error handling for smooth operation and reliability.
+
+- Configured core server setup in app.js, integrating middleware for logging, parsing, cookies, and static files.
+- Set up the EJS view engine and defined routes (/, /quiz, /results).
+- Implemented error handling for smooth operation and reliability.
 
 ## How to Run the Server
 
