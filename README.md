@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=T7xE2kxItIc
 
 ## Participating Team Members:
 
-Samiha Zaman, Reiad Sakoor Bhupendra Pariyar
+Samiha Zaman, Reiad Sakoor, Bhupendra Pariyar, Mani Azem
 
 ## Team Roles:
 
@@ -39,8 +39,11 @@ Samiha Zaman, Reiad Sakoor Bhupendra Pariyar
 
 **Bhupendra: Results page**
 
--On the frontend, it uses EJS to display the user’s score and a leaderboard, with buttons to restart or end the quiz handled by JavaScript.
--On the backend, it processes scores via Express, updates an in-memory leaderboard, sorts it, and limits it to the top 10 before rendering the results. This integrates templating, routing, and state management for an interactive experience.
+- On the frontend, it uses EJS to display the user’s score and a leaderboard, with buttons to restart or end the quiz handled by JavaScript.
+- On the backend, it processes scores via Express, updates an in-memory leaderboard, sorts it, and limits it to the top 10 before rendering the results. This integrates templating, routing, and state management for an interactive experience.
+
+**Mani: Backend and Server side**
+
 
 ## How to Run the Server
 
