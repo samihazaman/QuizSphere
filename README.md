@@ -37,6 +37,9 @@ Samiha Zaman, Reiad Sakoor Bhupendra Pariyar
 - Engineered the mainpage with a responsive design across all devices, leveraging flexbox layout and various animations to increase user engagement and a consistent experience   
 - Assisted with initializing the server
 
+**Bhupendra Pariyar: Results page**
+-On the frontend, it uses EJS to display the user’s score and a leaderboard, with buttons to restart or end the quiz handled by JavaScript. --On the backend, it processes scores via Express, updates an in-memory leaderboard, sorts it, and limits it to the top 10 before rendering the results. This integrates templating, routing, and state management for an interactive experience.
+
 ## How to Run the Server
 
 Follow these steps to set up and run the quiz app on your local machine:
