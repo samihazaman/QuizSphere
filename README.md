@@ -23,7 +23,7 @@ QuizSphere provides an interactive and engaging experience for users to test the
 
 ## Participating Team Members:
 
-Samiha Zaman, Reiad Sakoor
+Samiha Zaman, Reiad Sakoor Bhupendra Pariyar
 
 ## Team Roles:
 
