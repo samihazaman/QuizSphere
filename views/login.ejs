@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizSphere</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="login-signup">
+    <div class="login-container">
+        <h1> Login </h1>
+        <% if (typeof error !== 'undefined') { %>
+            <div style="color: red; font-weight: bold;">
+              <%= error %>
+            </div>
+          <% } %>
+        <div class="msg">
+            <p> Don't have a QuizSphere account? <a href="/signup"> Sign up </a> </p>
+        </div>
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <br>
+                <input type="text" name="username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" required>
+            </div>
+            
+            <div class="btn">
+            <button type="submit"> Login </button>
+        </div>
+        </form>
+    </div>
+    
+  
+</body>
+</html>
