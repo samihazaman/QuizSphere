@@ -1,9 +1,7 @@
 const { MongoClient } = require('mongodb');
-
 const dbURL = process.env.ATLAS_URI;
 
 let db;
-
 async function connectToDB() {
   try {
     const client = new MongoClient(dbURL, { useUnifiedTopology: true });
@@ -16,7 +14,7 @@ async function connectToDB() {
   }
 }
 
-function getCollection(collectionName) {
+function getCollection(collectionName) { // Used to grab the collection 
   if (!db) {
     throw new Error('Database connection not established. Call connectToDB first.');
   }

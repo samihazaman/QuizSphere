@@ -1,3 +1,111 @@
+.login-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(to right, rgb(0, 12, 100), #2486dc, #7068e7);
+}
+
+.login-container{
+    border: 15px outset navy;
+    border-top-color: white;
+    border-left-color: white;
+    padding: 70px 60px 130px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 500px;
+    height: 450px;
+    border-radius: 5px;
+}
+
+.signup-container{
+    border: 15px outset navy;
+    border-top-color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
+    padding: 10px 70px 325px 47px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 500px;
+    height: 550px;
+    border-radius: 5px;
+}
+
+h1{
+    font-weight: bolder;
+
+}
+
+p{
+    font-size: 25px;
+}
+
+a{
+    color: navy;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+label{
+    color: navy;
+    font-weight: bolder;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"]
+ {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 24px;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button[type="submit"] {
+    width: 50%;
+    padding: 12px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button[type="submit"]:hover {
+    background-color: navy;
+    color: white;
+}
+
 @keyframes fade {
     from {
         opacity: 0;
@@ -410,4 +518,3 @@ footer{
     background-color: #524eff;
     box-shadow: 0 0 15px #524eff;
   }
-
