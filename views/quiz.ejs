@@ -1,129 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Quiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Quiz</title>
 </head>
 <body>
-
-
-    <div class="quiz-header">
-        <h1>Quiz Time!</h1>
-        <div id="timer">Time Left: 10:00</div>
-    </div>
-    
-      <main>
-        <div id="quiz-page-container">
-          <div id="question-box">
-            <h2 id="question">Loading question...</h2>
-            <div id="options">
-              <!-- options will be added here fetched from server -->
-            </div>
-          </div>
-          <button id="next-button" disabled>Next</button>
+  <div class="quiz-header">
+    <h1>Quiz Time!</h1>
+    <div id="timer">Time Left: 10:00</div>
+  </div>
+  
+  <main>
+    <div id="quiz-page-container">
+      <div id="question-box">
+        <h2 id="question">Loading question...</h2>
+        <div id="options">
+          <!-- Fetched from server -->
         </div>
-      </main>
-    
-    
-      <script>
+      </div>
+      <button id="next-button" disabled>Next</button>
+    </div>
+  </main>
 
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let questions = [];
-        let timerInterval;
+  <script>
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let questions = [];
+    let timerInterval;
 
-        document.addEventListener('DOMContentLoaded', () => {
-        const questionElement = document.getElementById('question');
-        const optionsContainer = document.getElementById('options');
-        const nextButton = document.getElementById('next-button');
-        const timerElement = document.getElementById('timer');
+    document.addEventListener('DOMContentLoaded', () => {
+      const questionElement = document.getElementById('question');
+      const optionsContainer = document.getElementById('options');
+      const nextButton = document.getElementById('next-button');
+      const timerElement = document.getElementById('timer');
+      let timeLeft = 10 * 60; // 10 mins in seconds
 
-        let timeLeft = 10 * 60; //10 mins in seconds
-
-
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    endQuiz();
-                } else {
-                    timeLeft--;
-                    const minutes = Math.floor(timeLeft / 60);
-                    const seconds = timeLeft % 60;
-                    timerElement.textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-                }
-            }, 1000);
-        }
-
-         function endQuiz() {
+      function startTimer() {
+        timerInterval = setInterval(() => {
+          if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            window.location.href = `/results?score=${score}&total=${questions.length}`;
-        }
+            endQuiz();
+          } else {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `Time Left: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+          }
+        }, 1000);
+      }
 
+      function endQuiz() {
+        clearInterval(timerInterval);
+        // IMPORTANT: redirect to /results, not /result
+        window.location.href = `/results?score=${score}&total=${questions.length}`;
+      }
 
-        //fetch questions from the server
-        fetch('/quiz/questions').then(response => response.json()).then(data => {
-            questions = data; 
-            displayQuestion();
-            startTimer(); 
-            })
-            .catch(err => {
-            console.error('Error fetching questions:', err);
-            questionElement.textContent = 'Error loading questions. Please try again later.';
-            });
-
-        function displayQuestion() {
-            const questionData = questions[currentQuestionIndex];
-            questionElement.textContent = `${currentQuestionIndex + 1}. ${questionData.question}`; //show question number + question
-            
-            // clear and populate options
-            optionsContainer.innerHTML = '';
-            ['A', 'B', 'C', 'D'].forEach(option => {
-            const button = document.createElement('button');
-            button.textContent = `${option}: ${questionData[option]}`;
-            button.classList.add('option-button');
-            button.addEventListener('click', () => handleOptionClick(option));
-            optionsContainer.appendChild(button);
-            });
-
-            nextButton.disabled = true; 
-        }
-
-        function handleOptionClick(selectedOption) {
-            const correctOption = questions[currentQuestionIndex].answer;
-
-            if (selectedOption === correctOption) {
-            score++;
-            }
-
-            document.querySelectorAll('.option-button').forEach(button => {
-            if (button.textContent.startsWith(correctOption)) {
-                button.classList.add('correct');
-            } else {
-                button.classList.add('incorrect');
-            }
-            button.disabled = true; 
-            });
-
-            nextButton.disabled = false; 
-        }
-
-        nextButton.addEventListener('click', () => {
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < questions.length) {
-            displayQuestion(); 
-            } else {
-              endQuiz();
-            }
+      // Fetch questions from server
+      fetch('/quiz/questions')
+        .then(response => response.json())
+        .then(data => {
+          questions = data;
+          displayQuestion();
+          startTimer();
+        })
+        .catch(err => {
+          console.error('Error fetching questions:', err);
+          questionElement.textContent = 'Error loading questions. Please try again later.';
         });
+
+      function displayQuestion() {
+        const questionData = questions[currentQuestionIndex];
+        questionElement.textContent = `${currentQuestionIndex + 1}. ${questionData.question}`;
+
+        // Clear and populate options
+        optionsContainer.innerHTML = '';
+        ['A', 'B', 'C', 'D'].forEach(option => {
+          const button = document.createElement('button');
+          button.textContent = `${option}: ${questionData[option]}`;
+          button.classList.add('option-button');
+          button.addEventListener('click', () => handleOptionClick(option));
+          optionsContainer.appendChild(button);
+        });
+
+        nextButton.disabled = true;
+      }
+
+      function handleOptionClick(selectedOption) {
+        const correctOption = questions[currentQuestionIndex].answer;
+        if (selectedOption === correctOption) {
+          score++;
+        }
+        document.querySelectorAll('.option-button').forEach(button => {
+          // The correct one gets "correct" class, others get "incorrect"
+          if (button.textContent.startsWith(correctOption + ':')) {
+            button.classList.add('correct');
+          } else {
+            button.classList.add('incorrect');
+          }
+          button.disabled = true;
+        });
+        nextButton.disabled = false;
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          displayQuestion();
+        } else {
+          endQuiz();
+        }
+      });
     });
-
-
-      </script>
-    
-    
+  </script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - QuizSphere</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="logo">QuizSphere</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/quiz">Take a Quiz</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="profile">
+      <div class="profile-container">
+        <h2>Welcome, <%= user.username %>!</h2>
+        <p>Email: <%= user.email %></p>
+
+        <h3>Your Quiz Scores:</h3>
+        <ul>
+          <% user.scores.forEach(score => { %>
+            <li><%= score.date.toDateString() %>: <%= score.score %> points</li>
+          <% }) %>
+        </ul>
+
+        <a href="/quiz">
+          <button class="btn-primary">Take Another Quiz</button>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Copyright © 2025 QuizSphere. All rights reserved.</h2>
+  </footer>
+</body>
+</html>

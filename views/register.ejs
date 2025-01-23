@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - QuizSphere</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="logo">QuizSphere</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="register">
+      <div class="form-container">
+        <h2>Create a New Account</h2>
+        <form action="/register" method="POST">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit" class="btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login here</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Copyright © 2025 QuizSphere. All rights reserved.</h2>
+  </footer>
+</body>
+</html>
