@@ -23,9 +23,9 @@
         </p>
       </section>
 
-      <!-- Leaderboard -->
+      <!-- Leaderboard: Now from the DB (global) -->
       <section id="leaderboard">
-        <h3>Leaderboard</h3>
+        <h3>Global Leaderboard</h3>
         <div id="leaderboardList">
           <% if (scoreboard && scoreboard.length) { %>
             <% scoreboard.forEach(function(player) { %>
@@ -50,7 +50,6 @@
             height="20" 
             width="20" 
           />
-          
         </button>
         <button id="endQuiz" onclick="endQuiz()">
           End Quiz 
@@ -72,7 +71,7 @@
     <script>
       // Function to restart the quiz
       function restartQuiz() {
-        // For example, go back to the quiz page
+        // e.g. go back to the quiz page
         window.location.href = '/quiz';
       }
 
@@ -80,7 +79,7 @@
       function endQuiz() {
         alert("Quiz Ended! Thank you for participating.");
         // Optionally redirect to homepage or do something else
-        // window.location.href = '/';
+        window.location.href = '/';
       }
     </script>
   </body>
