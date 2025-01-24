@@ -34,6 +34,7 @@ Samiha Zaman, Reiad Sakoor, Bhupendra Pariyar, Mani Azem
 **Samiha: Backend Developer**
 - Implemented backend functionality for the Quiz Page, such as developing JavaScript logic to fetch questions from a JSON file and handle user interactions with answer selection and feedback.
 - Handled dynamic rendering of quiz data using EJS templates.
+- Setup MongoDB database and save users score along with other user information into MongoDB
 
 **Reiad: Login and Signup Pages**
 - Implemented the frontend display with flexbox structure, form handling and dynamic color range
