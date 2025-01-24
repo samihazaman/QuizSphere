@@ -411,3 +411,45 @@ footer{
     box-shadow: 0 0 15px #524eff;
   }
 
+
+
+
+  /* Main Content Styles */
+.profile-main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .profile-container {
+    text-align: center;
+  }
+  
+  .profile-container h2 {
+    color: #333;
+  }
+  
+  .profile-container p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .profile-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-container ul li {
+    background: #f0f8ff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+  }
+  
