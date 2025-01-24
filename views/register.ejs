@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - QuizSphere</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/login.css">
 </head>
 <body>
   <header>
@@ -15,18 +15,16 @@
     </nav>
   </header>
 
-  <main>
-    <section id="register">
-      <div class="form-container">
-        <h2>Create a New Account</h2>
-        <form action="/register" method="POST">
-          <input type="text" name="username" placeholder="Username" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="password" name="password" placeholder="Password" required />
-          <button type="submit" class="btn-primary">Register</button>
-        </form>
-        <p>Already have an account? <a href="/login">Login here</a>.</p>
-      </div>
+  <main class="login-signup">
+    <section id="register" class="signup-container">
+      <h2>Create a New Account</h2>
+      <form action="/register" method="POST">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+      <p>Already have an account? <a href="/login">Login here</a>.</p>
     </section>
   </main>
 
@@ -34,4 +32,4 @@
     <h2>Copyright © 2025 QuizSphere. All rights reserved.</h2>
   </footer>
 </body>
-</html>
+</html> this is the html again for the signup

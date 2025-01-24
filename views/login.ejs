@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - QuizSphere</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/login.css">
 </head>
 <body>
   <header>
@@ -15,17 +15,15 @@
     </nav>
   </header>
 
-  <main>
-    <section id="login">
-      <div class="form-container">
-        <h2>Login to Your Account</h2>
-        <form action="/login" method="POST">
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="password" name="password" placeholder="Password" required />
-          <button type="submit" class="btn-primary">Login</button>
-        </form>
-        <p>Don't have an account? <a href="/register">Register here</a>.</p>
-      </div>
+  <main class="login-signup">
+    <section id="login" class="login-container">
+      <h2>Login to Your Account</h2>
+      <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      <p>Don't have an account? <a href="/register">Register here</a>.</p>
     </section>
   </main>
 
