@@ -28,7 +28,7 @@ var app = express();
 })();
 
 app.use(session({
-  secret: 'quizsphere',
+  secret: 'quizsphere11341290',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
@@ -46,12 +46,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
-app.use('/index', indexRouter);
+app.use('/index', indexRouter); 
 app.use('/quiz', quizRouter); 
 app.use('/results', resultsRouter);
 
 app.get('/', (req, res) => {
-  res.redirect('/login'); 
+  res.render('index');  
 });
 
 // catch 404 and forward to error handler
