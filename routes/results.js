@@ -1,6 +1,8 @@
 // routes/results.js
 var express = require('express');
 var router = express.Router();
+const { getCollection } = require('../models/db');
+
 
 // In-memory scoreboard
 // Each entry will look like: { username: 'Player1', score: 5 }
@@ -41,5 +43,38 @@ router.get('/', (req, res) => {
     totalQuestions    // Total question count
   });
 });
+
+
+
+// POST route to save the quiz result
+router.post('/save-score', async (req, res) => {
+  try {
+    const { userId, score } = req.body; // `userId` and `score` sent from the frontend
+    const usersCollection = getCollection('quiz-sphere');
+
+    // Update the user's document with the new score
+    const result = await usersCollection.updateOne(
+      { _id: userId }, // Find the user by their unique ID
+      {
+        $push: { 
+          quizResults: { 
+            score: score, 
+            date: new Date() 
+          } 
+        }
+      }
+    );
+
+    if (result.modifiedCount > 0) {
+      res.status(200).send({ message: 'Score saved successfully!' });
+    } else {
+      res.status(404).send({ message: 'User not found' });
+    }
+  } catch (error) {
+    console.error('Error saving score:', error);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
 
 module.exports = router;
